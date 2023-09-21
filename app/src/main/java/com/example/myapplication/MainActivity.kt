@@ -7,8 +7,8 @@ import android.widget.EditText
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
-    lateinit var txt:EditText;
-    lateinit var boton: Button;
+    private lateinit var txt:EditText;
+    private lateinit var boton: Button;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         txt = findViewById(R.id.editTextText)
         boton = findViewById(R.id.button)
         boton.setOnClickListener{
-            Toast.makeText(this,"Muy bien, has escrito: ${txt.text}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"${getString(R.string.toast_txt)} ${txt.text}", Toast.LENGTH_SHORT).show()
         }
 
     }

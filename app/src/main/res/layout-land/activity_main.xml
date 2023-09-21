@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:text="Haz click aquí"
+        android:text="@string/haz_click_aqui"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextText"
         app:layout_constraintStart_toEndOf="@+id/editTextText"
         tools:ignore="MissingConstraints" />
@@ -23,10 +23,12 @@
         android:layout_marginStart="176dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Escribe aqui"
+        android:text="@string/escribe_aqui"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="0.508"
+        android:autofillHints="@string/hint"
+        tools:ignore="LabelFor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
