@@ -10,23 +10,23 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginStart="40dp"
         android:text="Haz click aquí"
-        app:layout_constraintStart_toStartOf="@+id/editTextText"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextText"
+        app:layout_constraintStart_toEndOf="@+id/editTextText"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="277dp"
+        android:layout_marginStart="176dp"
         android:ems="10"
         android:inputType="text"
         android:text="Escribe aqui"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
