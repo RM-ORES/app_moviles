@@ -1,10 +1,11 @@
-package com.example.myapplication.ui.pantallaMain
+package com.example.myapplication.ui.pantallaMain.ui.pantallaMain
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.viewModels
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
 
@@ -13,11 +14,19 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var txt:EditText;
     private lateinit var boton: Button;
+
+    private val viewModel: MainViewModel by viewModels {
+        MainViewModelFactory(
+
+        )
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             setContentView(root)
+
+
         }
         setContentView(R.layout.activity_main)
 
@@ -26,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         boton.setOnClickListener{
             Toast.makeText(this,"${getString(R.string.toast_txt)} ${txt.text}", Toast.LENGTH_SHORT).show()
         }
+
 
     }
 }
