@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="haz_click_aqui">Haz click aquí</string>
-    <string name="escribe_aqui">Escribe aqui</string>
-    <string name="toast_txt">Muy bien, has escrito: </string>
-    <string name="hint">Texto de prueba</string>
+    <string name="forma">Forma</string>
+    <string name="color">Color</string>
+    <string name="add">Añadir</string>
+    <string name="update">Modificar</string>
+    <string name="delete">Borrar</string>
+    <string name="radiobutton">RadioButton</string>
+    <string name="button">Button</string>
+    <string name="anterior">Anterior</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="fecha">Fecha de compra</string>
+
 </resources>

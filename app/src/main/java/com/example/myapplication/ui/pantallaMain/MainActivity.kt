@@ -36,19 +36,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         txt = findViewById(R.id.editTextText)
-        boton = findViewById(R.id.button)
+        boton = findViewById(R.id.buttonAdd)
         boton.setOnClickListener{
             Toast.makeText(this,"${getString(R.string.toast_txt)} ${txt.text}", Toast.LENGTH_SHORT).show()
         }
         observarViewModel()
-
+        eventos()
     }
     private fun observarViewModel() {
         viewModel.uiState.observe(this@MainActivity) { state ->
 
         }
     }
-    private fun eventos(){
+    private fun eventos(){//listeners
         with(binding){
 
         }
