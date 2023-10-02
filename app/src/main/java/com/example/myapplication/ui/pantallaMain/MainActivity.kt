@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.pantallaMain.ui.pantallaMain
+package com.example.myapplication.ui.pantallaMain
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +8,10 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.domain.usecases.Add
+import com.example.myapplication.domain.usecases.Delete
+import com.example.myapplication.domain.usecases.Update
+import com.example.myapplication.utils.StringProvider
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding;
@@ -17,7 +21,10 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(
-
+            StringProvider.instance(this),
+            Add(),
+            Update(),
+            Delete()
         )
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             setContentView(root)
-
-
         }
         setContentView(R.layout.activity_main)
 
@@ -35,7 +40,17 @@ class MainActivity : AppCompatActivity() {
         boton.setOnClickListener{
             Toast.makeText(this,"${getString(R.string.toast_txt)} ${txt.text}", Toast.LENGTH_SHORT).show()
         }
+        observarViewModel()
 
+    }
+    private fun observarViewModel() {
+        viewModel.uiState.observe(this@MainActivity) { state ->
 
+        }
+    }
+    private fun eventos(){
+        with(binding){
+
+        }
     }
 }
