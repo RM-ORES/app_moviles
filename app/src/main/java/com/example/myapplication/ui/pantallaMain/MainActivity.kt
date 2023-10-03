@@ -7,23 +7,21 @@ import android.widget.EditText
 import androidx.activity.viewModels
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.domain.usecases.Add
-import com.example.myapplication.domain.usecases.Delete
-import com.example.myapplication.domain.usecases.Update
+import com.example.myapplication.domain.usecases.AddSustancia
+import com.example.myapplication.domain.usecases.DeleteSustancia
+import com.example.myapplication.domain.usecases.UpdateSustancia
 import com.example.myapplication.utils.StringProvider
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding;
 
-    private lateinit var txt:EditText;
-    private lateinit var boton: Button;
 
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(
             StringProvider.instance(this),
-            Add(),
-            Update(),
-            Delete()
+            AddSustancia(),
+            UpdateSustancia(),
+            DeleteSustancia()
         )
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,13 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             setContentView(root)
         }
-        setContentView(R.layout.activity_main)
 
-        txt = findViewById(R.id.enterForma)
-        boton = findViewById(R.id.buttonAdd)
-        boton.setOnClickListener{
-
-        }
         observarViewModel()
         eventos()
     }

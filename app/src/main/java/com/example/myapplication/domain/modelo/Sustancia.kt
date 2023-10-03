@@ -2,7 +2,7 @@ package com.example.myapplication.domain.modelo
 
 import java.util.Date
 
-data class Pastilla(
+data class Sustancia(
     var descripcion:String = "",
     var fecha: Date? =null,
     var precio: Int? =null,

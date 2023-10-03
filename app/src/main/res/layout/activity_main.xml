@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterDate"
-        android:autofillHints="@string/precio" />
+        android:autofillHints="@string/" />
 
 
     <CheckBox
@@ -93,7 +93,6 @@
         android:layout_marginEnd="81dp"
         android:layout_marginBottom="62dp"
         android:background="#28E170F3"
-        app:SingleSelection="true"
         app:layout_constraintBottom_toTopOf="@+id/textpotencia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/efecto"
