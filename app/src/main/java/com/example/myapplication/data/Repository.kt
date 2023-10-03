@@ -1,23 +1,23 @@
 package com.example.myapplication.data
 
-import com.example.myapplication.domain.modelo.Objeto
+import com.example.myapplication.domain.modelo.Pastilla
 
 object Repository {
-    private val objetos = mutableListOf<Objeto>()
+    private val pastillas = mutableListOf<Pastilla>()
 
     init{
 
     }
-    private val mapObjetos = mutableMapOf<String, Objeto>()
+    private val mapObjetos = mutableMapOf<String, Pastilla>()
 
-    fun getObjetos(): List<Objeto> {return objetos}
-    fun findObjeto(id:Int): Objeto? {
-        return objetos.find { objeto: Objeto -> objeto.id == id }
+    fun getObjetos(): List<Pastilla> {return pastillas}
+    fun findObjeto(id:Int): Pastilla? {
+        return pastillas.find { pastilla: Pastilla -> pastilla.id == id }
     }
-    fun addObjeto(objeto: Objeto) = objetos.add(objeto)
-    fun updateObjeto(objeto: Objeto) {
-        objetos.remove(findObjeto(objeto.id))
-        objetos.add(objeto)
+    fun addObjeto(pastilla: Pastilla) = pastillas.add(pastilla)
+    fun updateObjeto(pastilla: Pastilla) {
+        pastillas.remove(findObjeto(pastilla.id))
+        pastillas.add(pastilla)
     }
-    fun deleteObjeto(objeto: Objeto) = objetos.remove(objeto)
+    fun deleteObjeto(pastilla: Pastilla) = pastillas.remove(pastilla)
 }

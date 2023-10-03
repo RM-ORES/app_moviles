@@ -1,15 +1,34 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="haz_click_aqui">Haz click aquí</string>
-    <string name="forma">Forma</string>
-    <string name="color">Color</string>
+<!--    atributos-->
+    <string name="descripcion">Descripción</string>
+    <string name="precio">Precio</string>
+    <string name="fecha">Día de consumición</string>
+    <string name="legal">Sustancia legal</string>
+    <string name="potencia">Potencia:</string>
+    <string name="efecto">Efecto principal:</string>
+    <string name="estimulante">Estimulante</string>
+    <string name="disociativo">Disociativo</string>
+    <string name="psicodelico">Psicodélico</string>
+
+
+<!--    botones-->
     <string name="add">Añadir</string>
     <string name="update">Modificar</string>
     <string name="delete">Borrar</string>
-    <string name="radiobutton">RadioButton</string>
-    <string name="button">Button</string>
-    <string name="anterior">Anterior</string>
-    <string name="siguiente">Siguiente</string>
-    <string name="fecha">Fecha de compra</string>
+    <string name="next">Siguiente elemento</string>
+    <string name="previous">Elemento anterior</string>
 
+<!--    ids-->
+    <string name="enterForma">enterForma</string>
+    <string name="enterColor">enterColor</string>
+    <string name="enterFecha">enterFecha</string>
+    <string name="txtpotencia">txtpotencia</string>
+    <string name="buttonNext">buttonNext</string>
+    <string name="buttonPrevious">buttonPrevious</string>
+    <string name="buttonAdd">buttonAdd</string>
+    <string name="buttonUpdate">buttonUpdate</string>
+    <string name="buttonDelete">buttonDelete</string>
+    <string name="ratingBar">ratingBar</string>
+    <string name="seekBar">seekBar</string>
 </resources>

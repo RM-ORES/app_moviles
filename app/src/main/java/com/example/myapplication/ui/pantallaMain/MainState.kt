@@ -1,9 +1,8 @@
 package com.example.myapplication.ui.pantallaMain
 
-import com.example.myapplication.domain.modelo.Objeto
-import java.lang.Error
+import com.example.myapplication.domain.modelo.Pastilla
 
 data class MainState (
-val objeto:Objeto= Objeto(null), val error: String? = null
+    val pastilla:Pastilla= Pastilla(null), val error: String? = null
 
     )

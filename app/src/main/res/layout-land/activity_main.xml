@@ -12,23 +12,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:text="@string/haz_click_aqui"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextText"
-        app:layout_constraintStart_toEndOf="@+id/editTextText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/enterForma"
+        app:layout_constraintStart_toEndOf="@+id/enterForma"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/enterForma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/escribe_aqui"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.508"
-        android:autofillHints="@string/hint"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:autofillHints="" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
