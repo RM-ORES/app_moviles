@@ -2,10 +2,7 @@ package com.example.myapplication.ui.pantallaMain
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import androidx.activity.viewModels
-import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.domain.usecases.AddSustancia
 import com.example.myapplication.domain.usecases.DeleteSustancia
