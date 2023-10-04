@@ -1,12 +1,9 @@
 package com.example.myapplication.data
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.example.myapplication.domain.modelo.Sustancia
 import java.time.Instant
 import java.util.Date
 
-@RequiresApi(Build.VERSION_CODES.O)
 object Repository {
     private val sustancias = mutableListOf<Sustancia>()
 
@@ -18,9 +15,8 @@ object Repository {
         sustancias.add(Sustancia("Speed, polvo", Date.from(Instant.now()),15,false,"Estimulante",7,3))
         sustancias.add(Sustancia("Setas Wollongong", Date.from(Instant.now()),20,false,"Psicodélico",9,4))
     }
-    private val mapSustancia = mutableMapOf<String, Sustancia>()
 
-    fun findSustancia(index: Int): Sustancia? {return sustancias[index]}
+    fun findSustancia(index: Int): Sustancia? { return sustancias[index]}
     fun addSustancia(sustancia: Sustancia) = sustancias.add(sustancia)
     fun updateSustancia(sustancia: Sustancia, index: Int) {
         sustancias[index] = sustancia

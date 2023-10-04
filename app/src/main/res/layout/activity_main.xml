@@ -134,6 +134,9 @@
         android:layout_marginStart="111dp"
         android:layout_marginEnd="111dp"
         android:layout_marginBottom="44dp"
+        android:progress="5"
+        android:min="0"
+        android:max="10"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
