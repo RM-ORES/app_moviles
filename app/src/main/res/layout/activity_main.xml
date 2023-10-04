@@ -15,7 +15,6 @@
         android:layout_marginEnd="90dp"
         android:ems="10"
         android:hint="@string/descripcion"
-        android:autofillHints="name"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterDescripcion"
-        android:autofillHints="@string/fecha" />
+         />
 
     <EditText
         android:id="@+id/enterNumber"
@@ -50,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterDate"
-        android:autofillHints="@string/" />
+         />
 
 
     <CheckBox
@@ -81,7 +80,8 @@
         app:layout_constraintBottom_toTopOf="@+id/seekBar"
         app:layout_constraintEnd_toStartOf="@+id/radioGroup"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        app:layout_constraintVertical_bias="0.244" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -124,6 +124,7 @@
             android:textSize="16sp"
             tools:layout_editor_absoluteX="130dp"
             tools:layout_editor_absoluteY="473dp" />
+
     </RadioGroup>
 
     <SeekBar
@@ -143,7 +144,7 @@
         android:layout_height="30dp"
         android:layout_marginStart="157dp"
         android:layout_marginEnd="157dp"
-        android:layout_marginBottom="224dp"
+        android:layout_marginBottom="4dp"
         android:text="@string/potencia"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/seekBar"
