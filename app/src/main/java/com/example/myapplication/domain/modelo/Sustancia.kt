@@ -6,7 +6,7 @@ import java.util.Date
 data class Sustancia(
     var descripcion:String = "",
     var fecha: LocalDate? =null,
-    var precio: Float? =null,
+    var precio: Int? =null,
     var legal:Boolean?=null,
     var efecto: String? =null,
     var potencia: Int? =null,

@@ -6,51 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".ui.pantallaMain.MainActivity">
 
+
     <EditText
         android:id="@+id/enterDescripcion"
         android:layout_width="256dp"
         android:layout_height="60dp"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="90dp"
         android:ems="10"
         android:hint="@string/descripcion"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="LabelFor" />
-
-    <EditText
-        android:id="@+id/enterDate"
-        android:layout_width="228dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="91dp"
-        android:ems="10"
-        android:hint="@string/fecha"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterDescripcion"
-         />
 
     <EditText
         android:id="@+id/enterNumber"
         android:layout_width="124dp"
         android:layout_height="60dp"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="150dp"
         android:ems="10"
         android:hint="@string/precio"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterDate"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/enterDate" />
 
+    <EditText
+        android:id="@+id/enterDate"
+        android:layout_width="228dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="91dp"
+        android:ems="10"
+        android:hint="@string/fecha"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterDescripcion" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -63,7 +64,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterNumber" />
 
@@ -81,7 +82,7 @@
         app:layout_constraintEnd_toStartOf="@+id/radioGroup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox"
-        app:layout_constraintVertical_bias="0.244" />
+        app:layout_constraintVertical_bias="0.153" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -133,10 +134,10 @@
         android:layout_height="43dp"
         android:layout_marginStart="111dp"
         android:layout_marginEnd="111dp"
-        android:layout_marginBottom="44dp"
-        android:progress="5"
-        android:min="0"
+        android:layout_marginBottom="20dp"
         android:max="10"
+        android:min="0"
+        android:progress="5"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -161,7 +162,7 @@
         android:layout_height="41dp"
         android:layout_marginStart="87dp"
         android:layout_marginEnd="87dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="92dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonAdd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

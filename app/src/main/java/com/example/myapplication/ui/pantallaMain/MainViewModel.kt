@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.domain.modelo.Sustancia
 import com.example.myapplication.domain.usecases.AddSustanciaUsecase
 import com.example.myapplication.domain.usecases.DeleteSustanciaUsecase
-import com.example.myapplication.domain.usecases.FindSustanciaUsecase
+import com.example.myapplication.domain.usecases.GetSustanciaUsecase
 import com.example.myapplication.domain.usecases.UpdateSustanciaUsecase
 import com.example.myapplication.utils.StringProvider
 
@@ -16,22 +16,58 @@ class MainViewModel(
     private val addSustanciaUsecase: AddSustanciaUsecase,
     private val deleteSustanciaUsecase: DeleteSustanciaUsecase,
     private val updateSustanciaUsecase: UpdateSustanciaUsecase,
-    private val findSustanciaUsecase: FindSustanciaUsecase
+    private val getSustanciaUsecase: GetSustanciaUsecase,
 ) : ViewModel(){
 
     private val _uiState = MutableLiveData<MainState>()
     val uiState: LiveData<MainState> get() = _uiState
+    private var index = 0
 
-    fun addSustancia(sustancia: Sustancia){
-        addSustancia(sustancia)
-//        if(!addSustancia(sustancia)){
-//            _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
-//        }
+    init {
+        this.getSustancia()
     }
-    fun deleteSustancia(sustancia: Sustancia){}
-    fun updateSustancia(sustancia: Sustancia){}
-    fun findSustancia(sustancia: Sustancia){}
+    fun next(){
+        if (getSustanciaUsecase(index + 1) == null){
+            _uiState.value = _uiState.value?.copy(error = Constantes.ERRORNEXT)
+        } else {
+            index += 1
+            getSustancia()
+        }
 
+    }
+    fun previous(){
+        if (index-1 < 0){
+            _uiState.value = _uiState.value?.copy(error = Constantes.ERRORPREVIOUS)
+        } else {
+            index -= 1
+            getSustancia()
+        }
+
+    }
+    fun addSustancia(sustancia: Sustancia){
+        if(!addSustanciaUsecase(sustancia)){
+            _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
+        } else {
+           _uiState.value = _uiState.value?.copy(error = Constantes.AÑADIDO)
+        }
+    }
+    fun deleteSustancia(sustancia: Sustancia){
+        if(!deleteSustanciaUsecase(sustancia)){
+            _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
+        } else{
+            _uiState.value = _uiState.value?.copy(error = Constantes.BORRADO)
+        }
+    }
+    fun updateSustancia(sustancia: Sustancia){
+        updateSustanciaUsecase(sustancia,index)
+    }
+    fun getSustancia(){
+        if (getSustanciaUsecase(index) == null){
+            _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
+        } else {
+            _uiState.value = MainState(sustancia = getSustanciaUsecase(index)!!)
+        }
+    }
     fun errorMostrado() {
         _uiState.value = _uiState.value?.copy(error = null)
     }
@@ -45,7 +81,7 @@ class MainViewModelFactory(
     private val addSustanciaUsecase: AddSustanciaUsecase,
     private val deleteSustanciaUsecase: DeleteSustanciaUsecase,
     private val updateSustanciaUsecase: UpdateSustanciaUsecase,
-    private val findSustanciaUsecase: FindSustanciaUsecase
+    private val getSustanciaUsecase: GetSustanciaUsecase
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
@@ -55,7 +91,7 @@ class MainViewModelFactory(
                 addSustanciaUsecase,
                 deleteSustanciaUsecase,
                 updateSustanciaUsecase,
-                findSustanciaUsecase
+                getSustanciaUsecase
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
