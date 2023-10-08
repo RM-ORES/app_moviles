@@ -42,24 +42,18 @@ class MainViewModel(
             index -= 1
             getSustancia()
         }
-
     }
     fun addSustancia(sustancia: Sustancia){
-        if(!addSustanciaUsecase(sustancia)){
-            _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
-        } else {
-           _uiState.value = _uiState.value?.copy(error = Constantes.AÑADIDO)
-        }
+        addSustanciaUsecase(sustancia)
+        _uiState.value = _uiState.value?.copy(error = Constantes.AÑADIDO)
     }
     fun deleteSustancia(sustancia: Sustancia){
-        if(!deleteSustanciaUsecase(sustancia)){
-            _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
-        } else{
-            _uiState.value = _uiState.value?.copy(error = Constantes.BORRADO)
-        }
+        deleteSustanciaUsecase(sustancia)
+        _uiState.value = _uiState.value?.copy(error = Constantes.BORRADO)
     }
     fun updateSustancia(sustancia: Sustancia){
         updateSustanciaUsecase(sustancia,index)
+        _uiState.value = _uiState.value?.copy(error = Constantes.MODIFICADO)
     }
     fun getSustancia(){
         if (getSustanciaUsecase(index) == null){

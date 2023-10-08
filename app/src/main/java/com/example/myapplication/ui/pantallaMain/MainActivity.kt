@@ -56,9 +56,7 @@ class MainActivity : AppCompatActivity() {
                     enterDescripcion.setText(sustancia!!.descripcion)
                     enterDate.setText(sustancia.fecha.toString())
                     enterNumber.setText(sustancia.precio.toString())
-                    if (sustancia.legal == true) {
-                        checkBox.isChecked = true
-                    }
+                    checkBox.isChecked = sustancia.legal!!
                     when (sustancia.efecto) {
                         Constantes.ESTIMULANTE -> radioButton1.isChecked = true
                         Constantes.DISOCIATIVO -> radioButton2.isChecked = true
@@ -72,7 +70,8 @@ class MainActivity : AppCompatActivity() {
                     if (sustancia.valoracion == null) {
                         ratingBar.numStars = 0
                     } else {
-                        ratingBar.numStars = sustancia.valoracion!!
+                        //ratingBar.numStars = sustancia.valoracion!!
+                        ratingBar.rating = sustancia.valoracion!!.toFloat()
                     }
                 }
             }
@@ -80,7 +79,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun eventos() {//listeners
         with(binding) {
             buttonNext.setOnClickListener {
@@ -100,28 +98,26 @@ class MainActivity : AppCompatActivity() {
                         checkBox.isChecked,
                         radioGroup.findViewById<RadioButton?>(radioGroup.checkedRadioButtonId).text.toString(),
                         seekBar.progress,
-                        ratingBar.numStars
+                        ratingBar.rating.toInt()
                     )
                 )
-                buttonDelete.setOnClickListener {
-                    viewModel.uiState.value?.let { it1 -> viewModel.deleteSustancia(it1.sustancia) }
-                }
+            }
+            buttonDelete.setOnClickListener {
+                viewModel.uiState.value?.let { it1 -> viewModel.deleteSustancia(it1.sustancia) }
+            }
 
-                buttonUpdate.setOnClickListener {
-                    viewModel.updateSustancia(
-                        Sustancia(
-                            enterDescripcion.text.toString(),
-                            LocalDate.parse(enterDate.text),
-                            enterNumber.text.toString().toInt(),
-                            checkBox.isChecked,
-                            radioGroup.findViewById<RadioButton?>(radioGroup.checkedRadioButtonId).text.toString(),
-                            seekBar.progress,
-                            ratingBar.numStars
-                        )
+            buttonUpdate.setOnClickListener {
+                viewModel.updateSustancia(
+                    Sustancia(
+                        enterDescripcion.text.toString(),
+                        LocalDate.parse(enterDate.text),
+                        enterNumber.text.toString().toInt(),
+                        checkBox.isChecked,
+                        radioGroup.findViewById<RadioButton?>(radioGroup.checkedRadioButtonId).text.toString(),
+                        seekBar.progress,
+                        ratingBar.rating.toInt()
                     )
-                }
-
-
+                )
             }
         }
     }

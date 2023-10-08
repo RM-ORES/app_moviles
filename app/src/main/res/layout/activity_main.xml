@@ -17,6 +17,7 @@
         android:ems="10"
         android:hint="@string/descripcion"
         android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/enterDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,11 +29,11 @@
         android:layout_width="124dp"
         android:layout_height="60dp"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="150dp"
         android:ems="10"
         android:hint="@string/precio"
         android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,11 +44,11 @@
         android:layout_width="228dp"
         android:layout_height="60dp"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="91dp"
         android:ems="10"
         android:hint="@string/fecha"
         android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/enterNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,13 +59,13 @@
         android:layout_width="173dp"
         android:layout_height="50dp"
         android:layout_marginStart="119dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="119dp"
         android:text="@string/legal"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterNumber" />
 
@@ -73,16 +74,15 @@
         android:layout_width="97dp"
         android:layout_height="60dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="86dp"
         android:layout_marginEnd="23dp"
-        android:layout_marginBottom="324dp"
+        android:layout_marginBottom="140dp"
         android:text="@string/efecto"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/seekBar"
         app:layout_constraintEnd_toStartOf="@+id/radioGroup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -90,9 +90,8 @@
         android:layout_height="wrap_content"
 
         android:layout_marginStart="23dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="81dp"
-        android:layout_marginBottom="62dp"
         android:background="#28E170F3"
         app:layout_constraintBottom_toTopOf="@+id/textpotencia"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,7 +108,7 @@
             tools:layout_editor_absoluteY="418dp" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/radioButton2"
             android:layout_width="150dp"
             android:layout_height="48dp"
             android:text="@string/disociativo"
@@ -118,7 +117,7 @@
             tools:layout_editor_absoluteY="363dp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButton3"
             android:layout_width="150dp"
             android:layout_height="48dp"
             android:text="@string/psicodelico"
@@ -128,107 +127,133 @@
 
     </RadioGroup>
 
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginBottom="47dp"
+        android:max="5"
+        android:min="0"
+        android:progress="2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintVertical_bias="0.875" />
+
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="189dp"
         android:layout_height="43dp"
         android:layout_marginStart="111dp"
         android:layout_marginEnd="111dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="16dp"
         android:max="10"
         android:min="0"
         android:progress="5"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textpotencia" />
 
     <TextView
         android:id="@+id/textpotencia"
-        android:layout_width="97dp"
-        android:layout_height="30dp"
+        android:layout_width="91dp"
+        android:layout_height="47dp"
         android:layout_marginStart="157dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="157dp"
-        android:layout_marginBottom="4dp"
         android:text="@string/potencia"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/seekBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="237dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="87dp"
-        android:layout_marginEnd="87dp"
-        android:layout_marginBottom="92dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAdd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/buttonAdd"
-        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-        android:layout_width="105dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/update"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="153dp" />
-
-    <Button
-        android:id="@+id/buttonUpdate"
-        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-        android:layout_width="95dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="72dp"
-        android:text="@string/add"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonPrevious"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <Button
         android:id="@+id/buttonDelete"
         style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-        android:layout_width="92dp"
+        android:layout_width="wrap_content"
         android:layout_height="59dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="44dp"
         android:text="@string/delete"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonNext"
+        app:layout_constraintEnd_toStartOf="@+id/buttonUpdate"
+        app:layout_constraintStart_toEndOf="@+id/buttonAdd"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/buttonPrevious"
-        style="@style/Widget.Material3.Button.IconButton.Outlined"
-        android:layout_width="51dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="48dp"
-        android:contentDescription="@string/previous"
-        app:icon="?attr/homeAsUpIndicator"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/buttonUpdate"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+        android:layout_width="114dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/update"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonDelete"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+        android:layout_width="95dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/add"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPrevious"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDelete"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/buttonNext"
         style="@style/Widget.Material3.Button.IconButton.Outlined"
         android:layout_width="54dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="48dp"
-        android:rotationY="-180"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="16dp"
         android:contentDescription="@string/next"
+        android:rotationY="-180"
         app:icon="?attr/actionModeCloseDrawable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonPrevious"
+        style="@style/Widget.Material3.Button.IconButton.Outlined"
+        android:layout_width="51dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="238dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/previous"
+        app:icon="?attr/homeAsUpIndicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonNext"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
