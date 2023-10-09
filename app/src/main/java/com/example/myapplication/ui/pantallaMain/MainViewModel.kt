@@ -8,6 +8,7 @@ import com.example.myapplication.domain.modelo.Sustancia
 import com.example.myapplication.domain.usecases.AddSustanciaUsecase
 import com.example.myapplication.domain.usecases.DeleteSustanciaUsecase
 import com.example.myapplication.domain.usecases.GetSustanciaUsecase
+import com.example.myapplication.domain.usecases.SustanciasLengthUsecase
 import com.example.myapplication.domain.usecases.UpdateSustanciaUsecase
 import com.example.myapplication.utils.StringProvider
 
@@ -17,6 +18,7 @@ class MainViewModel(
     private val deleteSustanciaUsecase: DeleteSustanciaUsecase,
     private val updateSustanciaUsecase: UpdateSustanciaUsecase,
     private val getSustanciaUsecase: GetSustanciaUsecase,
+    private val sustanciasLengthUsecase: SustanciasLengthUsecase
 ) : ViewModel(){
 
     private val _uiState = MutableLiveData<MainState>()
@@ -27,7 +29,7 @@ class MainViewModel(
         this.getSustancia()
     }
     fun next(){
-        if (getSustanciaUsecase(index + 1) == null){
+        if (index+1 >= sustanciasLengthUsecase.invoke()!!){
             _uiState.value = _uiState.value?.copy(error = Constantes.ERRORNEXT)
         } else {
             index += 1
@@ -75,7 +77,8 @@ class MainViewModelFactory(
     private val addSustanciaUsecase: AddSustanciaUsecase,
     private val deleteSustanciaUsecase: DeleteSustanciaUsecase,
     private val updateSustanciaUsecase: UpdateSustanciaUsecase,
-    private val getSustanciaUsecase: GetSustanciaUsecase
+    private val getSustanciaUsecase: GetSustanciaUsecase,
+    private val sustanciasLengthUsecase: SustanciasLengthUsecase
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
@@ -85,7 +88,8 @@ class MainViewModelFactory(
                 addSustanciaUsecase,
                 deleteSustanciaUsecase,
                 updateSustanciaUsecase,
-                getSustanciaUsecase
+                getSustanciaUsecase,
+                sustanciasLengthUsecase
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

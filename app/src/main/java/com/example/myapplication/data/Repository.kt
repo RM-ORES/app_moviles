@@ -22,6 +22,9 @@ object Repository {
             return sustancias[index]
         }
     }
+    fun sustanciasLength():Int?{
+        return sustancias.size
+    }
 
     fun addSustancia(sustancia: Sustancia) = sustancias.add(sustancia)
     fun updateSustancia(sustancia: Sustancia, index: Int) {

@@ -12,6 +12,7 @@ import com.example.myapplication.domain.modelo.Sustancia
 import com.example.myapplication.domain.usecases.AddSustanciaUsecase
 import com.example.myapplication.domain.usecases.DeleteSustanciaUsecase
 import com.example.myapplication.domain.usecases.GetSustanciaUsecase
+import com.example.myapplication.domain.usecases.SustanciasLengthUsecase
 import com.example.myapplication.domain.usecases.UpdateSustanciaUsecase
 import com.example.myapplication.utils.StringProvider
 import java.time.LocalDate
@@ -27,7 +28,8 @@ class MainActivity : AppCompatActivity() {
             AddSustanciaUsecase(),
             DeleteSustanciaUsecase(),
             UpdateSustanciaUsecase(),
-            GetSustanciaUsecase()
+            GetSustanciaUsecase(),
+            SustanciasLengthUsecase()
         )
     }
 
@@ -38,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             setContentView(root)
         }
-        viewModel.getSustancia()
         observarViewModel()
         eventos()
     }
