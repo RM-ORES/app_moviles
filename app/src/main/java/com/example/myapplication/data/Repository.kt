@@ -6,13 +6,43 @@ import java.time.LocalDate
 object Repository {
     private val sustancias = mutableListOf<Sustancia>()
 
-    init{
-        sustancias.add(Sustancia("MDMA, pastilla gris punisher", LocalDate.now(),10,false,"Estimulante",8,3))
-        sustancias.add(Sustancia("6-APB, polvo", LocalDate.now(),8,true,"Estimulante",6,3))
-        sustancias.add(Sustancia("LSD, cartón", LocalDate.now(),10,false,"Psicodélico",9,5))
-        sustancias.add(Sustancia("Cloretilo, spray", LocalDate.now(),10,true,"Disociativo",7,1))
-        sustancias.add(Sustancia("Speed, polvo", LocalDate.now(),15,false,"Estimulante",7,3))
-        sustancias.add(Sustancia("Setas Wollongong", LocalDate.now(),20,false,"Psicodélico",9,4))
+    init {
+        sustancias.add(
+            Sustancia(
+                "MDMA, pastilla gris punisher",
+                LocalDate.now(),
+                10,
+                false,
+                "Estimulante",
+                8,
+                3
+            )
+        )
+        sustancias.add(Sustancia("6-APB, polvo", LocalDate.now(), 8, true, "Estimulante", 6, 3))
+        sustancias.add(Sustancia("LSD, cartón", LocalDate.now(), 10, false, "Psicodélico", 9, 5))
+        sustancias.add(
+            Sustancia(
+                "Cloretilo, spray",
+                LocalDate.now(),
+                10,
+                true,
+                "Disociativo",
+                7,
+                1
+            )
+        )
+        sustancias.add(Sustancia("Speed, polvo", LocalDate.now(), 15, false, "Estimulante", 7, 3))
+        sustancias.add(
+            Sustancia(
+                "Setas Wollongong",
+                LocalDate.now(),
+                20,
+                false,
+                "Psicodélico",
+                9,
+                4
+            )
+        )
     }
 
     fun getSustancia(index: Int): Sustancia? {
@@ -22,7 +52,8 @@ object Repository {
             return sustancias[index]
         }
     }
-    fun sustanciasLength():Int?{
+
+    fun sustanciasLength(): Int? {
         return sustancias.size
     }
 

@@ -14,7 +14,6 @@ import com.example.myapplication.domain.usecases.DeleteSustanciaUsecase
 import com.example.myapplication.domain.usecases.GetSustanciaUsecase
 import com.example.myapplication.domain.usecases.SustanciasLengthUsecase
 import com.example.myapplication.domain.usecases.UpdateSustanciaUsecase
-import com.example.myapplication.utils.StringProvider
 import java.time.LocalDate
 
 
@@ -24,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(
-            StringProvider.instance(this),
             AddSustanciaUsecase(),
             DeleteSustanciaUsecase(),
             UpdateSustanciaUsecase(),
@@ -50,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, error, Toast.LENGTH_SHORT).show()
                 viewModel.errorMostrado()
             }
-            if (state.error == null){
+            if (state.error == null) {
                 binding.apply {
                     var sustancia = viewModel.uiState.value?.sustancia
 

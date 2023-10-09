@@ -10,16 +10,14 @@ import com.example.myapplication.domain.usecases.DeleteSustanciaUsecase
 import com.example.myapplication.domain.usecases.GetSustanciaUsecase
 import com.example.myapplication.domain.usecases.SustanciasLengthUsecase
 import com.example.myapplication.domain.usecases.UpdateSustanciaUsecase
-import com.example.myapplication.utils.StringProvider
 
 class MainViewModel(
-    private val stringProvider:StringProvider,
     private val addSustanciaUsecase: AddSustanciaUsecase,
     private val deleteSustanciaUsecase: DeleteSustanciaUsecase,
     private val updateSustanciaUsecase: UpdateSustanciaUsecase,
     private val getSustanciaUsecase: GetSustanciaUsecase,
     private val sustanciasLengthUsecase: SustanciasLengthUsecase
-) : ViewModel(){
+) : ViewModel() {
 
     private val _uiState = MutableLiveData<MainState>()
     val uiState: LiveData<MainState> get() = _uiState
@@ -28,8 +26,9 @@ class MainViewModel(
     init {
         this.getSustancia()
     }
-    fun next(){
-        if (index+1 >= sustanciasLengthUsecase.invoke()!!){
+
+    fun next() {
+        if (index + 1 >= sustanciasLengthUsecase.invoke()!!) {
             _uiState.value = _uiState.value?.copy(error = Constantes.ERRORNEXT)
         } else {
             index += 1
@@ -37,33 +36,40 @@ class MainViewModel(
         }
 
     }
-    fun previous(){
-        if (index-1 < 0){
+
+    fun previous() {
+        if (index - 1 < 0) {
             _uiState.value = _uiState.value?.copy(error = Constantes.ERRORPREVIOUS)
         } else {
             index -= 1
             getSustancia()
         }
     }
-    fun addSustancia(sustancia: Sustancia){
+
+    fun addSustancia(sustancia: Sustancia) {
         addSustanciaUsecase(sustancia)
         _uiState.value = _uiState.value?.copy(error = Constantes.AÑADIDO)
+        getSustancia()
     }
-    fun deleteSustancia(sustancia: Sustancia){
+
+    fun deleteSustancia(sustancia: Sustancia) {
         deleteSustanciaUsecase(sustancia)
         _uiState.value = _uiState.value?.copy(error = Constantes.BORRADO)
     }
-    fun updateSustancia(sustancia: Sustancia){
-        updateSustanciaUsecase(sustancia,index)
+
+    fun updateSustancia(sustancia: Sustancia) {
+        updateSustanciaUsecase(sustancia, index)
         _uiState.value = _uiState.value?.copy(error = Constantes.MODIFICADO)
     }
-    fun getSustancia(){
-        if (getSustanciaUsecase(index) == null){
-            _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
+
+    fun getSustancia() {
+        if (getSustanciaUsecase(index) == null) {
+            _uiState.value = MainState(sustancia = Sustancia(), error = Constantes.ERROR)
         } else {
             _uiState.value = MainState(sustancia = getSustanciaUsecase(index)!!)
         }
     }
+
     fun errorMostrado() {
         _uiState.value = _uiState.value?.copy(error = null)
     }
@@ -73,7 +79,6 @@ class MainViewModel(
  * Factory class to instantiate the [ViewModel] instance.
  */
 class MainViewModelFactory(
-    private val stringProvider:StringProvider,
     private val addSustanciaUsecase: AddSustanciaUsecase,
     private val deleteSustanciaUsecase: DeleteSustanciaUsecase,
     private val updateSustanciaUsecase: UpdateSustanciaUsecase,
@@ -84,7 +89,6 @@ class MainViewModelFactory(
         if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return MainViewModel(
-                stringProvider,
                 addSustanciaUsecase,
                 deleteSustanciaUsecase,
                 updateSustanciaUsecase,
