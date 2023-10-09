@@ -11,7 +11,7 @@
         android:id="@+id/enterDescripcion"
         android:layout_width="228dp"
         android:layout_height="60dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:autofillHints="@string/descripcion"
         android:ems="10"
@@ -56,7 +56,7 @@
         android:id="@+id/checkBox"
         android:layout_width="173dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="36dp"
         android:text="@string/legal"
@@ -101,7 +101,7 @@
             tools:layout_editor_absoluteY="418dp" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/radioButton2"
             android:layout_width="150dp"
             android:layout_height="48dp"
             android:text="@string/disociativo"
@@ -110,7 +110,7 @@
             tools:layout_editor_absoluteY="363dp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButton3"
             android:layout_width="150dp"
             android:layout_height="48dp"
             android:text="@string/psicodelico"
@@ -141,7 +141,9 @@
         android:layout_marginStart="29dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="64dp"
-        android:visibility="visible"
+        android:max="10"
+        android:min="0"
+        android:progress="5"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toStartOf="@+id/buttonUpdate"
         app:layout_constraintStart_toEndOf="@+id/textpotencia"
@@ -179,11 +181,11 @@
     <Button
         android:id="@+id/buttonUpdate"
         style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-        android:layout_width="95dp"
-        android:layout_height="57dp"
+        android:layout_width="119dp"
+        android:layout_height="60dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="28dp"
-        android:text="@string/add"
+        android:text="@string/update"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonAdd"
         app:layout_constraintEnd_toEndOf="parent"
@@ -193,11 +195,11 @@
     <Button
         android:id="@+id/buttonAdd"
         style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-        android:layout_width="105dp"
-        android:layout_height="58dp"
+        android:layout_width="94dp"
+        android:layout_height="62dp"
         android:layout_marginStart="93dp"
         android:layout_marginEnd="28dp"
-        android:text="@string/update"
+        android:text="@string/add"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonDelete"
         app:layout_constraintEnd_toEndOf="parent"
