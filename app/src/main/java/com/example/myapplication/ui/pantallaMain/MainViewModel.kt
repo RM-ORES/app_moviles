@@ -10,6 +10,7 @@ import com.example.myapplication.domain.usecases.DeleteSustanciaUsecase
 import com.example.myapplication.domain.usecases.GetSustanciaUsecase
 import com.example.myapplication.domain.usecases.SustanciasLengthUsecase
 import com.example.myapplication.domain.usecases.UpdateSustanciaUsecase
+import java.time.LocalDate
 
 class MainViewModel(
     private val addSustanciaUsecase: AddSustanciaUsecase,
@@ -24,49 +25,65 @@ class MainViewModel(
     private var index = 0
 
     init {
-        this.getSustancia()
+        _uiState.value = MainState(
+            sustancia = getSustanciaUsecase(index)!!,
+            error = null,
+            principio = true,
+            fin = false
+        )
     }
 
     fun next() {
-        if (index + 1 >= sustanciasLengthUsecase.invoke()!!) {
-            _uiState.value = _uiState.value?.copy(error = Constantes.ERRORNEXT)
-        } else {
-            index += 1
-            getSustancia()
-        }
-
+        _uiState.value = _uiState.value?.copy(fin = false)
+        index += 1
+        getSustancia()
     }
 
     fun previous() {
-        if (index - 1 < 0) {
-            _uiState.value = _uiState.value?.copy(error = Constantes.ERRORPREVIOUS)
-        } else {
-            index -= 1
-            getSustancia()
-        }
+        _uiState.value = _uiState.value?.copy(principio = false)
+        index -= 1
+        getSustancia()
     }
 
     fun addSustancia(sustancia: Sustancia) {
         addSustanciaUsecase(sustancia)
-        _uiState.value = _uiState.value?.copy(error = Constantes.AÑADIDO)
+        _uiState.value = _uiState.value?.copy(error = Constantes.AÑADIDO, fin = false)
         getSustancia()
     }
 
     fun deleteSustancia(sustancia: Sustancia) {
         deleteSustanciaUsecase(sustancia)
         _uiState.value = _uiState.value?.copy(error = Constantes.BORRADO)
+        if (sustanciasLengthUsecase.invoke() == 0) {
+            _uiState.value = MainState(
+                sustancia = Sustancia("", LocalDate.now(), 0, false, null, 0, 0),
+                error = null,
+                principio = true,
+                fin = true
+            )
+            addSustancia(_uiState.value!!.sustancia)
+        }
+        if (_uiState.value?.fin == true && index > 0) {
+            index -= 1
+        }
+        getSustancia()
     }
 
     fun updateSustancia(sustancia: Sustancia) {
         updateSustanciaUsecase(sustancia, index)
         _uiState.value = _uiState.value?.copy(error = Constantes.MODIFICADO)
+        getSustancia()
     }
 
     fun getSustancia() {
         if (getSustanciaUsecase(index) == null) {
-            _uiState.value = MainState(sustancia = Sustancia(), error = Constantes.ERROR)
+            _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
         } else {
-            _uiState.value = MainState(sustancia = getSustanciaUsecase(index)!!)
+            _uiState.value = _uiState.value?.copy(
+                sustancia = getSustanciaUsecase(index)!!,
+                principio = index == 0,
+                fin = index == sustanciasLengthUsecase.invoke() - 1
+            )
         }
     }
 

@@ -1,6 +1,7 @@
 package com.example.myapplication.data
 
 import com.example.myapplication.domain.modelo.Sustancia
+import com.example.myapplication.ui.pantallaMain.Constantes
 import java.time.LocalDate
 
 object Repository {
@@ -9,38 +10,79 @@ object Repository {
     init {
         sustancias.add(
             Sustancia(
-                "MDMA, pastilla gris punisher",
-                LocalDate.now(),
+                Constantes.SUSNOMBRE1,
+                LocalDate.of(2021, 6, 27),
                 10,
                 false,
-                "Estimulante",
+                Constantes.ESTIMULANTE,
                 8,
                 3
             )
         )
-        sustancias.add(Sustancia("6-APB, polvo", LocalDate.now(), 8, true, "Estimulante", 6, 3))
-        sustancias.add(Sustancia("LSD, cartón", LocalDate.now(), 10, false, "Psicodélico", 9, 5))
         sustancias.add(
             Sustancia(
-                "Cloretilo, spray",
-                LocalDate.now(),
+                Constantes.SUSNOMBRE2,
+                LocalDate.of(2023, 7, 15),
+                8,
+                true,
+                Constantes.ESTIMULANTE,
+                6,
+                3
+            )
+        )
+        sustancias.add(
+            Sustancia(
+                Constantes.SUSNOMBRE3,
+                LocalDate.of(2022, 5, 19),
+                10,
+                false,
+                Constantes.PSICODELICO,
+                9,
+                5
+            )
+        )
+        sustancias.add(
+            Sustancia(
+                Constantes.SUSNOMBRE4,
+                LocalDate.of(2021, 8, 2),
                 10,
                 true,
-                "Disociativo",
+                Constantes.DISOCIATIVO,
                 7,
                 1
             )
         )
-        sustancias.add(Sustancia("Speed, polvo", LocalDate.now(), 15, false, "Estimulante", 7, 3))
         sustancias.add(
             Sustancia(
-                "Setas Wollongong",
-                LocalDate.now(),
+                Constantes.SUSNOMBRE5,
+                LocalDate.of(2022, 9, 3),
+                15,
+                false,
+                Constantes.ESTIMULANTE,
+                7,
+                3
+            )
+        )
+        sustancias.add(
+            Sustancia(
+                Constantes.SUSNOMBRE6,
+                LocalDate.of(2023, 7, 14),
                 20,
                 false,
-                "Psicodélico",
+                Constantes.PSICODELICO,
                 9,
                 4
+            )
+        )
+        sustancias.add(
+            Sustancia(
+                Constantes.SUSNOMBRE7,
+                LocalDate.of(2023, 8, 28),
+                12,
+                false,
+                Constantes.ESTIMULANTE,
+                8,
+                5
             )
         )
     }
@@ -53,7 +95,7 @@ object Repository {
         }
     }
 
-    fun sustanciasLength(): Int? {
+    fun sustanciasLength(): Int {
         return sustancias.size
     }
 

@@ -1,12 +1,11 @@
 package com.example.myapplication.ui.pantallaMain
 
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.domain.modelo.Sustancia
 import com.example.myapplication.domain.usecases.AddSustanciaUsecase
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -48,9 +46,9 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, error, Toast.LENGTH_SHORT).show()
                 viewModel.errorMostrado()
             }
-            if (state.error == null) {
-                binding.apply {
-                    var sustancia = viewModel.uiState.value?.sustancia
+            binding.apply {
+                if (state.error == null) {
+                    val sustancia = viewModel.uiState.value?.sustancia
 
                     enterDescripcion.setText(sustancia!!.descripcion)
                     enterDate.setText(sustancia.fecha.toString())
@@ -69,16 +67,30 @@ class MainActivity : AppCompatActivity() {
                     if (sustancia.valoracion == null) {
                         ratingBar.numStars = 0
                     } else {
-                        //ratingBar.numStars = sustancia.valoracion!!
                         ratingBar.rating = sustancia.valoracion!!.toFloat()
                     }
+                }
+
+                if (state.fin == true) {
+                    buttonNext.isEnabled = false
+                    buttonNext.visibility = View.INVISIBLE
+                } else {
+                    buttonNext.isEnabled = true
+                    buttonNext.visibility = View.VISIBLE
+                }
+                if (state.principio == true) {
+                    buttonPrevious.isEnabled = false
+                    buttonPrevious.visibility = View.INVISIBLE
+                } else {
+                    buttonPrevious.isEnabled = true
+                    buttonPrevious.visibility = View.VISIBLE
                 }
             }
 
         }
     }
 
-    private fun eventos() {//listeners
+    private fun eventos() {
         with(binding) {
             buttonNext.setOnClickListener {
                 viewModel.next()

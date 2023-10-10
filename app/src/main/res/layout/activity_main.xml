@@ -22,7 +22,8 @@
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:autofillHints="@string/descripcion" />
 
     <EditText
         android:id="@+id/enterNumber"
@@ -37,7 +38,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterDate" />
+        app:layout_constraintTop_toBottomOf="@+id/enterDate"
+        android:autofillHints="@string/precio" />
 
     <EditText
         android:id="@+id/enterDate"
@@ -52,7 +54,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterDescripcion" />
+        app:layout_constraintTop_toBottomOf="@+id/enterDescripcion"
+        android:autofillHints="@string/fecha" />
 
     <CheckBox
         android:id="@+id/checkBox"
