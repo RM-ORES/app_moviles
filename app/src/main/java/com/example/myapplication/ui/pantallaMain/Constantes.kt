@@ -5,7 +5,7 @@ object Constantes {
     const val ERROR = "Ha habido un error"
 
     //info
-    const val AÑADIDO = "Sustancia añadida"
+    const val ANADIDO = "Sustancia añadida"
     const val BORRADO = "Sustancia borrada"
     const val MODIFICADO = "Sustancia modificada"
 

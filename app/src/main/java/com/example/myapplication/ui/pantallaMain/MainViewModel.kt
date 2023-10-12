@@ -47,7 +47,7 @@ class MainViewModel(
 
     fun addSustancia(sustancia: Sustancia) {
         addSustanciaUsecase(sustancia)
-        _uiState.value = _uiState.value?.copy(error = Constantes.AÑADIDO, fin = false)
+        _uiState.value = _uiState.value?.copy(error = Constantes.ANADIDO, fin = false)
         getSustancia()
     }
 
@@ -75,7 +75,7 @@ class MainViewModel(
         getSustancia()
     }
 
-    fun getSustancia() {
+    private fun getSustancia() {
         if (getSustanciaUsecase(index) == null) {
             _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
         } else {

@@ -88,10 +88,10 @@ object Repository {
     }
 
     fun getSustancia(index: Int): Sustancia? {
-        if (sustancias.size < index || index < 0) {
-            return null
+        return if (sustancias.size < index || index < 0) {
+            null
         } else {
-            return sustancias[index]
+            sustancias[index]
         }
     }
 
@@ -101,7 +101,7 @@ object Repository {
 
     fun addSustancia(sustancia: Sustancia) = sustancias.add(sustancia)
     fun updateSustancia(sustancia: Sustancia, index: Int) {
-        sustancias.set(index, sustancia)
+        sustancias[index] = sustancia
     }
 
     fun deleteSustancia(sustancia: Sustancia) = sustancias.remove(sustancia)
